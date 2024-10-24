@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "17NH2YxxZpq3hPZXEk8rLA/ERlOELiNxSg3UazlkVdo=",
+  "Source": "MSS.WLIM.API",
+  "BasePath": "_content/MSS.WLIM.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

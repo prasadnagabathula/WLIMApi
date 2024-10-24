@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\MSS.WLIM.Login.API.props" />
+</Project>

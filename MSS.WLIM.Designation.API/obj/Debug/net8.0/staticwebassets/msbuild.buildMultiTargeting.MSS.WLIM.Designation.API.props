@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\MSS.WLIM.Designation.API.props" />
+</Project>
