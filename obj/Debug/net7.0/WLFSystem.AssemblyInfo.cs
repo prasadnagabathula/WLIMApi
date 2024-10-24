@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("WLFSystem")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+978fc9bdf35403afbf61d08c435083333fbbb3ca")]
 [assembly: System.Reflection.AssemblyProductAttribute("WLFSystem")]
 [assembly: System.Reflection.AssemblyTitleAttribute("WLFSystem")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
