@@ -8,6 +8,6 @@ build_property.PlatformNeutralAssembly =
 build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = MSS.WLIM.DataServices
-build_property.ProjectDir = C:\Users\mshaik5\source\WLIMTask\WLIMBackend\MSS.WLIM.API\WLIMApi\MSS.WLIM.DataServices\
+build_property.ProjectDir = C:\Prasad\Dev\WLIMApi\MSS.WLIM.DataServices\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = 

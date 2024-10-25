@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MSS.WLIM.Login.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+978fc9bdf35403afbf61d08c435083333fbbb3ca")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+39947e68bb96474eba642a3da7bafc6f979cab2f")]
 [assembly: System.Reflection.AssemblyProductAttribute("MSS.WLIM.Login.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MSS.WLIM.Login.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mshaik5\\source\\WLIMTask\\WLIMBackend\\MSS.WLIM.API\\WLIMApi\\MSS.WLIM.DataServices\\MSS.WLIM.DataServices.csproj": {}
+    "C:\\Prasad\\Dev\\WLIMApi\\MSS.WLIM.DataServices\\MSS.WLIM.DataServices.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mshaik5\\source\\WLIMTask\\WLIMBackend\\MSS.WLIM.API\\WLIMApi\\MSS.WLIM.DataServices\\MSS.WLIM.DataServices.csproj": {
+    "C:\\Prasad\\Dev\\WLIMApi\\MSS.WLIM.DataServices\\MSS.WLIM.DataServices.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mshaik5\\source\\WLIMTask\\WLIMBackend\\MSS.WLIM.API\\WLIMApi\\MSS.WLIM.DataServices\\MSS.WLIM.DataServices.csproj",
+        "projectUniqueName": "C:\\Prasad\\Dev\\WLIMApi\\MSS.WLIM.DataServices\\MSS.WLIM.DataServices.csproj",
         "projectName": "MSS.WLIM.DataServices",
-        "projectPath": "C:\\Users\\mshaik5\\source\\WLIMTask\\WLIMBackend\\MSS.WLIM.API\\WLIMApi\\MSS.WLIM.DataServices\\MSS.WLIM.DataServices.csproj",
-        "packagesPath": "C:\\Users\\mshaik5\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mshaik5\\source\\WLIMTask\\WLIMBackend\\MSS.WLIM.API\\WLIMApi\\MSS.WLIM.DataServices\\obj\\",
+        "projectPath": "C:\\Prasad\\Dev\\WLIMApi\\MSS.WLIM.DataServices\\MSS.WLIM.DataServices.csproj",
+        "packagesPath": "C:\\Users\\pnagabathula\\.nuget\\packages\\",
+        "outputPath": "C:\\Prasad\\Dev\\WLIMApi\\MSS.WLIM.DataServices\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mshaik5\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\pnagabathula\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,6 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -34,6 +35,11 @@
           "warnAsError": [
             "NU1605"
           ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
         }
       },
       "frameworks": {
@@ -93,7 +99,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

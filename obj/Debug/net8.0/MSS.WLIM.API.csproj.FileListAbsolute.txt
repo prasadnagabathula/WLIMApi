@@ -186,3 +186,14 @@ C:\Users\mshaik5\source\WLIMTask\WLIMBackend\MSS.WLIM.API\WLIMApi\obj\Debug\net8
 C:\Users\mshaik5\source\WLIMTask\WLIMBackend\MSS.WLIM.API\WLIMApi\obj\Debug\net8.0\MSS.WLIM.API.pdb
 C:\Users\mshaik5\source\WLIMTask\WLIMBackend\MSS.WLIM.API\WLIMApi\obj\Debug\net8.0\MSS.WLIM.API.genruntimeconfig.cache
 C:\Users\mshaik5\source\WLIMTask\WLIMBackend\MSS.WLIM.API\WLIMApi\obj\Debug\net8.0\ref\MSS.WLIM.API.dll
+C:\Prasad\Dev\WLIMApi\obj\Debug\net8.0\MSS.WLIM.API.csproj.AssemblyReference.cache
+C:\Prasad\Dev\WLIMApi\obj\Debug\net8.0\MSS.WLIM.API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Prasad\Dev\WLIMApi\obj\Debug\net8.0\MSS.WLIM.API.AssemblyInfoInputs.cache
+C:\Prasad\Dev\WLIMApi\obj\Debug\net8.0\MSS.WLIM.API.AssemblyInfo.cs
+C:\Prasad\Dev\WLIMApi\obj\Debug\net8.0\MSS.WLIM.API.csproj.CoreCompileInputs.cache
+C:\Prasad\Dev\WLIMApi\obj\Debug\net8.0\MSS.WLIM.API.MvcApplicationPartsAssemblyInfo.cs
+C:\Prasad\Dev\WLIMApi\obj\Debug\net8.0\MSS.WLIM.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Prasad\Dev\WLIMApi\obj\Debug\net8.0\MSS.WLIM.API.sourcelink.json
+C:\Prasad\Dev\WLIMApi\obj\Debug\net8.0\MSS.WLIM.API.dll
+C:\Prasad\Dev\WLIMApi\obj\Debug\net8.0\refint\MSS.WLIM.API.dll
+C:\Prasad\Dev\WLIMApi\obj\Debug\net8.0\MSS.WLIM.API.pdb

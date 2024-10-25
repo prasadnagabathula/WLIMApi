@@ -4921,19 +4921,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\mshaik5\\.nuget\\packages\\": {}
+    "C:\\Users\\pnagabathula\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mshaik5\\source\\WLIMTask\\WLIMBackend\\MSS.WLIM.API\\WLIMApi\\MSS.WLIM.Designation.API\\MSS.WLIM.Designation.API.csproj",
+      "projectUniqueName": "C:\\Prasad\\Dev\\WLIMApi\\MSS.WLIM.Designation.API\\MSS.WLIM.Designation.API.csproj",
       "projectName": "MSS.WLIM.Designation.API",
-      "projectPath": "C:\\Users\\mshaik5\\source\\WLIMTask\\WLIMBackend\\MSS.WLIM.API\\WLIMApi\\MSS.WLIM.Designation.API\\MSS.WLIM.Designation.API.csproj",
-      "packagesPath": "C:\\Users\\mshaik5\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mshaik5\\source\\WLIMTask\\WLIMBackend\\MSS.WLIM.API\\WLIMApi\\MSS.WLIM.Designation.API\\obj\\",
+      "projectPath": "C:\\Prasad\\Dev\\WLIMApi\\MSS.WLIM.Designation.API\\MSS.WLIM.Designation.API.csproj",
+      "packagesPath": "C:\\Users\\pnagabathula\\.nuget\\packages\\",
+      "outputPath": "C:\\Prasad\\Dev\\WLIMApi\\MSS.WLIM.Designation.API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\mshaik5\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\pnagabathula\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -4941,14 +4941,15 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "C:\\Users\\mshaik5\\source\\WLIMTask\\WLIMBackend\\MSS.WLIM.API\\WLIMApi\\MSS.WLIM.DataServices\\MSS.WLIM.DataServices.csproj": {
-              "projectPath": "C:\\Users\\mshaik5\\source\\WLIMTask\\WLIMBackend\\MSS.WLIM.API\\WLIMApi\\MSS.WLIM.DataServices\\MSS.WLIM.DataServices.csproj"
+            "C:\\Prasad\\Dev\\WLIMApi\\MSS.WLIM.DataServices\\MSS.WLIM.DataServices.csproj": {
+              "projectPath": "C:\\Prasad\\Dev\\WLIMApi\\MSS.WLIM.DataServices\\MSS.WLIM.DataServices.csproj"
             }
           }
         }
@@ -4957,6 +4958,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -5023,7 +5029,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.403/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
