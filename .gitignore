@@ -3,3 +3,9 @@
 ################################################################################
 
 /.vs/WLFSystem/FileContentIndex
+# Ignore bin and obj directories
+bin/
+obj/
+log/
+.vs/
+../.vs/
