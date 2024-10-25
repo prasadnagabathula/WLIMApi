@@ -17,11 +17,12 @@ namespace MSS.WLIM.DataServices.Data
         public DbSet<Departments> WHTblDepartment { get; set; }
         public DbSet<Designations> WHTblDesignation { get; set; }
         public DbSet<Users> WHTblUser { get; set; }
+        public DbSet<LostItemRequests> WHTblLostItemRequest { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-            //----------3rd table_Employee------------------------------------
+            //----------Table_User------------------------------------
             modelBuilder.Entity<Users>()
             .HasOne(e => e.Designation)
             .WithMany(d => d.Users)

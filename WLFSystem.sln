@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSS.WLIM.Role.API", "MSS.WL
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSS.WLIM.User.API", "MSS.WLIM.User.API\MSS.WLIM.User.API.csproj", "{2F7FB3B3-C50F-4DBE-8C05-F7A91B6F8415}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MSS.WLIM.LostItemRequest.API", "MSS.WLIM.LostItemRequest.API\MSS.WLIM.LostItemRequest.API.csproj", "{CC5F63FA-6235-4B2B-9EBA-ED017ED2E1D6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{2F7FB3B3-C50F-4DBE-8C05-F7A91B6F8415}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F7FB3B3-C50F-4DBE-8C05-F7A91B6F8415}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2F7FB3B3-C50F-4DBE-8C05-F7A91B6F8415}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC5F63FA-6235-4B2B-9EBA-ED017ED2E1D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC5F63FA-6235-4B2B-9EBA-ED017ED2E1D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC5F63FA-6235-4B2B-9EBA-ED017ED2E1D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC5F63FA-6235-4B2B-9EBA-ED017ED2E1D6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
