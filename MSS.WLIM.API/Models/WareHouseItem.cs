@@ -13,10 +13,13 @@ namespace WLFSystem.Models
         public string? WarehouseLocation { get; set; }
         public string? Status { get; set; }
         public string? Tags { get; set; }
+        public string? ItemDescription { get; set; }
         public string? CreatedBy { get; set; }
        public DateTime? CreatedDate { get; set; }
         public string? UpdatedBy { get; set; }
         public DateTime? UpdatedDate { get; set; }
+        public string? ItemObject { get; set; }
+
     }
 
     public class WareHouseItemViewModel
@@ -24,7 +27,11 @@ namespace WLFSystem.Models
         [Key]
         public string Id { get; set; } = Guid.NewGuid().ToString();
         public string? Category { get; set; }
-        public string[]? Tags { get; set;}
-        
+        public string? Tags { get; set;}
+        public string? ItemDescription { get; set; }
+        public string? WarehouseLocation { get; set; }
+        public string? ItemObject { get; set; }
+
+
     }
 }

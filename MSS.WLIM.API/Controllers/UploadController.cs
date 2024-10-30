@@ -64,9 +64,11 @@ namespace WLFSystem.Controllers
                     CreatedBy = "System",
                     CreatedDate = DateTime.Now,
                     FilePath = item.Id + "_" + file.FileName,
-                    WarehouseLocation = "Atlanta",
+                    WarehouseLocation = item.WarehouseLocation,
                     Status = "Photo Captured",
-                    Tags = String.Join(",", item.Tags)
+                    Tags = String.Join(",", item.Tags),
+                    ItemDescription = item.ItemDescription,
+                    ItemObject= item.ItemObject
                 };
                 
                 // Add the new item to the context
@@ -89,7 +91,7 @@ namespace WLFSystem.Controllers
 
         [HttpPost]
         [Route("search")]
-        public async Task<IActionResult> Search(IFormFile file)
+        public async Task<IActionResult> Search(IFormFile file, [FromForm] WareHouseItemViewModel item)
         {
             if (file == null || file.Length == 0)
                 return BadRequest("No file uploaded.");
@@ -108,12 +110,10 @@ namespace WLFSystem.Controllers
                 await file.CopyToAsync(stream);
             }
 
-
-            string uploadedImagePath = "C:\\Prasad\\Dev\\WLFSystem\\WLFSystem\\search\\" + file.FileName;
-            string folderPath = "C:\\Prasad\\Dev\\WLFSystem\\WLFSystem\\uploads";
+            string folderPath = Path.Combine(Directory.GetCurrentDirectory(), "uploads");
 
             // Load the uploaded image
-            var uploadedImage = new Image<Bgr, byte>(uploadedImagePath);
+            var uploadedImage = new Image<Bgr, byte>(filePath);
             var uploadedImageGray = uploadedImage.Convert<Gray, byte>();
 
             // Initialize ORB detector
@@ -130,44 +130,93 @@ namespace WLFSystem.Controllers
 
             List<string> filesMatched = new List<string>();
 
-            // Iterate through all images in the specified folder
-            foreach (var sourceFile in Directory.GetFiles(folderPath, "*.jpg"))
+            //Get list of uploaded items based on matched category from the database
+            var wareHouseItems = _context.TblWareHouseItem.Where(x => (x.Category != null && item.Category != null && x.Category.Contains(item.Category)) || (x.ItemDescription != null && item.ItemDescription != null && x.ItemDescription.Contains(item.ItemDescription)))?.ToList();
+            wareHouseItems ??= new List<WareHouseItem>();
+            //if (item.Tags != null)
+            //foreach (var tag in item.Tags)
+            //{
+            //    var tagItems = _context.TblWareHouseItem.Where(x => (x.Tags != null && x.Tags.Contains(tag)))?.ToList();
+            //    if (tagItems != null)
+            //    {
+            //        foreach (var tagItem in tagItems)
+            //        {
+            //            if(!wareHouseItems.Any(x=>x.Id == tagItem.Id))
+            //            wareHouseItems.Add(tagItem);
+            //        }
+            //    }
+            //}
+
+            // Split the incoming tags from React input into a list
+            var inputTags = item.Tags?.Split(',').Select(t => t.Trim()).ToList() ?? new List<string>();
+
+
+            // Retrieve items where Tags is not null
+            var itemsWithTags = _context.TblWareHouseItem
+                                .Where(x => x.Tags != null)
+                                .ToList();
+
+            foreach (var tag in inputTags) // Loop through each tag from the React input
             {
-                var candidateImage = new Image<Bgr, byte>(sourceFile);
-                var candidateGray = candidateImage.Convert<Gray, byte>();
+                // Filter items in memory to check if any split tag in the database contains the input tag
+                var tagItems = itemsWithTags
+                                .Where(x => x.Tags
+                                             .Split(',')
+                                             .Any(dbTag => dbTag.Trim().Contains(tag, StringComparison.OrdinalIgnoreCase)))
+                                .ToList();
 
-                // Detect keypoints and compute descriptors for the candidate image
-                var candidateKeypoints = new VectorOfKeyPoint();
-                var candidateDescriptors = new Mat();
-                orb.DetectAndCompute(candidateGray, null, candidateKeypoints, candidateDescriptors, false);
-
-                // Match descriptors using BFMatcher
-                var matcher = new BFMatcher(DistanceType.Hamming);
-                VectorOfDMatch matches = new VectorOfDMatch();
-                matcher.Match(uploadedDescriptors, candidateDescriptors, matches);
-                //var matches = matcher.Match(descriptors1, descriptors2);
-
-                // Filter matches based on distance (similarity threshold)
-                const double threshold = 45.0; // Adjust as needed
-                var goodMatches = new List<MDMatch>();
-                //var goodMatches = matches.Where(m => m.Distance < 30).ToList();
-                foreach (var match in matches.ToArray())
+                foreach (var tagItem in tagItems)
                 {
-                    if (match.Distance < threshold)
+                    if (!wareHouseItems.Any(x => x.Id == tagItem.Id)) // Add if not already in list
                     {
-                        goodMatches.Add(match);
+                        wareHouseItems.Add(tagItem);
                     }
-                }
-
-                // If enough good matches are found, consider it a match
-                if (goodMatches.Count > 10) // Adjust the match count threshold as needed
-                {
-                    filesMatched.Add(sourceFile.Split("\\")[sourceFile.Split("\\").Length - 1]);
-                    //Console.WriteLine($"Image '{sourceFile}' matches with the uploaded image.");
                 }
             }
 
-            return Ok(new { FilesMatched = filesMatched, Message = filesMatched.Count + " items found" });
+
+
+            // Iterate through all images in the specified folder
+            //foreach (var warehouseItem in wareHouseItems)
+            //{
+            //    if (warehouseItem.FilePath != null)
+            //    {
+            //        var sourceFile = Path.Combine(folderPath, warehouseItem.FilePath);
+            //        var candidateImage = new Image<Bgr, byte>(sourceFile);
+            //        var candidateGray = candidateImage.Convert<Gray, byte>();
+
+            //        // Detect keypoints and compute descriptors for the candidate image
+            //        var candidateKeypoints = new VectorOfKeyPoint();
+            //        var candidateDescriptors = new Mat();
+            //        orb.DetectAndCompute(candidateGray, null, candidateKeypoints, candidateDescriptors, false);
+
+            //        // Match descriptors using BFMatcher
+            //        var matcher = new BFMatcher(DistanceType.Hamming);
+            //        VectorOfDMatch matches = new VectorOfDMatch();
+            //        matcher.Match(uploadedDescriptors, candidateDescriptors, matches);
+            //        //var matches = matcher.Match(descriptors1, descriptors2);
+
+            //        // Filter matches based on distance (similarity threshold)
+            //        const double threshold = 45.0; // Adjust as needed
+            //        var goodMatches = new List<MDMatch>();
+            //        //var goodMatches = matches.Where(m => m.Distance < 30).ToList();
+            //        foreach (var match in matches.ToArray())
+            //        {
+            //            if (match.Distance < threshold)
+            //            {
+            //                goodMatches.Add(match);
+            //            }
+            //        }
+
+            //        // If enough good matches are found, consider it a match
+            //        if (goodMatches.Count > 10) // Adjust the match count threshold as needed
+            //        {
+            //            filesMatched.Add(sourceFile.Split("\\")[sourceFile.Split("\\").Length - 1]);
+            //            //Console.WriteLine($"Image '{sourceFile}' matches with the uploaded image.");
+            //        }
+            //    }
+            //}
+            return Ok(new { FilesMatched = wareHouseItems, Message = filesMatched.Count + " items found" });
         }
 
         [HttpGet("images/{imageName}")]
@@ -187,7 +236,7 @@ namespace WLFSystem.Controllers
         {
             if (!string.IsNullOrEmpty(tag))
             {
-                var wareHouseItems = _context.TblWareHouseItem.Where(x => x.Tags.Contains(tag))?.ToList();
+                var wareHouseItems = _context.TblWareHouseItem.Where(x => (x.Tags != null && x.Tags.Contains(tag)) || (x.Category != null && x.Category.Contains(tag)) || (x.ItemDescription != null && x.ItemDescription.Contains(tag)))?.ToList();
                return Ok(wareHouseItems);
             }
             return NotFound();
