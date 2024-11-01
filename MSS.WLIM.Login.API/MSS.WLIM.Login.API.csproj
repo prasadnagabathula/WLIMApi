@@ -26,10 +26,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MSS.WLIM.DataServices\MSS.WLIM.DataServices.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Services\" />
   </ItemGroup>
 
