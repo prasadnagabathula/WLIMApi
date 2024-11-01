@@ -71,8 +71,9 @@ namespace WLFSystem.Controllers
                     Comments = item.Comments
                 };
                 
-                // Add the new item to the context
+
                 await _context.WarehouseItems.AddAsync(warehouseItem);
+
 
                 // Save the changes to the database
                 await _context.SaveChangesAsync();
@@ -131,6 +132,7 @@ namespace WLFSystem.Controllers
             List<string> filesMatched = new List<string>();
 
             //Get list of uploaded items based on matched category from the database
+
             var wareHouseItems = _context.WarehouseItems.Where(x => (x.Category != null && item.Category != null && x.Category.Contains(item.Category)) || (x.ItemDescription != null && item.ItemDescription != null && x.ItemDescription.Contains(item.ItemDescription)))?.ToList();
             wareHouseItems ??= new List<WareHouseItem>();
             //if (item.Tags != null)
@@ -245,6 +247,7 @@ namespace WLFSystem.Controllers
         [HttpGet("images")]
         public async Task<IActionResult> GetAllImages()
         {
+
             var wareHouseItems = _context.WarehouseItems.AsParallel<WareHouseItem>().ToList();
             return Ok(wareHouseItems);
         }
@@ -257,6 +260,7 @@ namespace WLFSystem.Controllers
           
             return Ok(data);
         }
+
     }
 }
 
