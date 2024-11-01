@@ -10,6 +10,7 @@ namespace WLFSystem
         {
 
         }
-        public DbSet<WareHouseItem> TblWareHouseItem { get; set; }
+
+        public DbSet<WareHouseItem> WarehouseItems { get; set; }
     }
 }

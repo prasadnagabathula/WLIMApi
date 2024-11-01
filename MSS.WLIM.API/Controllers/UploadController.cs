@@ -71,8 +71,9 @@ namespace WLFSystem.Controllers
                     Comments = item.Comments
                 };
                 
-                // Add the new item to the context
-                await _context.TblWareHouseItem.AddAsync(warehouseItem);
+
+                await _context.WarehouseItems.AddAsync(warehouseItem);
+
 
                 // Save the changes to the database
                 await _context.SaveChangesAsync();
@@ -131,12 +132,13 @@ namespace WLFSystem.Controllers
             List<string> filesMatched = new List<string>();
 
             //Get list of uploaded items based on matched category from the database
-            var wareHouseItems = _context.TblWareHouseItem.Where(x => (x.Category != null && item.Category != null && x.Category.Contains(item.Category)) || (x.ItemDescription != null && item.ItemDescription != null && x.ItemDescription.Contains(item.ItemDescription)))?.ToList();
+
+            var wareHouseItems = _context.WarehouseItems.Where(x => (x.Category != null && item.Category != null && x.Category.Contains(item.Category)) || (x.ItemDescription != null && item.ItemDescription != null && x.ItemDescription.Contains(item.ItemDescription)))?.ToList();
             wareHouseItems ??= new List<WareHouseItem>();
             //if (item.Tags != null)
             //foreach (var tag in item.Tags)
             //{
-            //    var tagItems = _context.TblWareHouseItem.Where(x => (x.Tags != null && x.Tags.Contains(tag)))?.ToList();
+            //    var tagItems = _context.WarehouseItems.Where(x => (x.Tags != null && x.Tags.Contains(tag)))?.ToList();
             //    if (tagItems != null)
             //    {
             //        foreach (var tagItem in tagItems)
@@ -152,7 +154,7 @@ namespace WLFSystem.Controllers
 
 
             // Retrieve items where Tags is not null
-            var itemsWithTags = _context.TblWareHouseItem
+            var itemsWithTags = _context.WarehouseItems
                                 .Where(x => x.Tags != null)
                                 .ToList();
 
@@ -236,7 +238,7 @@ namespace WLFSystem.Controllers
         {
             if (!string.IsNullOrEmpty(tag))
             {
-                var wareHouseItems = _context.TblWareHouseItem.Where(x => (x.Tags != null && x.Tags.Contains(tag)) || (x.Category != null && x.Category.Contains(tag)) || (x.ItemDescription != null && x.ItemDescription.Contains(tag)))?.ToList();
+                var wareHouseItems = _context.WarehouseItems.Where(x => (x.Tags != null && x.Tags.Contains(tag)) || (x.Category != null && x.Category.Contains(tag)) || (x.ItemDescription != null && x.ItemDescription.Contains(tag)))?.ToList();
                return Ok(wareHouseItems);
             }
             return NotFound();
@@ -245,9 +247,20 @@ namespace WLFSystem.Controllers
         [HttpGet("images")]
         public async Task<IActionResult> GetAllImages()
         {
-            var wareHouseItems = _context.TblWareHouseItem.AsParallel<WareHouseItem>().ToList();
+
+            var wareHouseItems = _context.WarehouseItems.AsParallel<WareHouseItem>().ToList();
             return Ok(wareHouseItems);
         }
+
+        [HttpGet("getAll")]
+        //[Authorize(Roles = "Admin")]
+        public async Task<ActionResult<IEnumerable<WareHouseItem>>> GetAll()
+        {
+            var data = await _warehouseItemService.GetAll();
+          
+            return Ok(data);
+        }
+
     }
 }
 
