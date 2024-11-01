@@ -1,4 +1,10 @@
-﻿.vs/
-**/bin/
-**/obj/
-/MSS.WLIM.API/for test
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/WLFSystem/FileContentIndex
+# Ignore bin and obj directories
+bin/
+obj/
+log/
+.vs/
