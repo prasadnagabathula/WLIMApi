@@ -7,10 +7,16 @@ namespace WLFSystem.Controllers.Services
     public class WareHouseItemService : IWareHouseItemService
     {
         private readonly DataBaseContext _context;
+
+        public WareHouseItemService(DataBaseContext context)
+        {
+            _context = context ?? throw new ArgumentNullException(nameof(context));
+        }
+
         public async Task<WareHouseItem> Add(WareHouseItem item)
         {
             // Add the new item to the DbSet
-            await _context.TblWareHouseItem.AddAsync(item);
+            await _context.WarehouseItems.AddAsync(item);
 
             // Save changes to the database
             await _context.SaveChangesAsync();
@@ -28,9 +34,30 @@ namespace WLFSystem.Controllers.Services
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<WareHouseItem>> GetAll()
+        public async Task<IEnumerable<WareHouseItem>> GetAll()
         {
-            throw new NotImplementedException();
+            var identifiedItem = await _context.WarehouseItems.ToListAsync();
+
+            var warehouseItemDto = new List<WareHouseItem>();
+
+            foreach (var d in identifiedItem)
+            {
+                warehouseItemDto.Add(new WareHouseItem
+                {
+                    Id = d.Id,
+                    Category = d.Category,
+                    Tags = d.Tags,
+                    ItemDescription = d.ItemDescription,
+                    WarehouseLocation = d.WarehouseLocation,
+                    Comments = d.Comments,
+                    CreatedBy = d.CreatedBy,
+                    CreatedDate = d.CreatedDate,
+                    UpdatedBy = d.UpdatedBy,
+                    UpdatedDate = d.UpdatedDate
+                });
+            }
+
+            return warehouseItemDto;
         }
 
         public Task<WareHouseItem> Update(WareHouseItem employee)
