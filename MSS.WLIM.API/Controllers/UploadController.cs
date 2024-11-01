@@ -68,7 +68,7 @@ namespace WLFSystem.Controllers
                     Status = "Photo Captured",
                     Tags = String.Join(",", item.Tags),
                     ItemDescription = item.ItemDescription,
-                    ItemObject= item.ItemObject
+                    Comments = item.Comments
                 };
                 
                 // Add the new item to the context

@@ -18,7 +18,7 @@ namespace WLFSystem.Models
        public DateTime? CreatedDate { get; set; }
         public string? UpdatedBy { get; set; }
         public DateTime? UpdatedDate { get; set; }
-        public string? ItemObject { get; set; }
+        public string? Comments { get; set; }
 
     }
 
@@ -30,7 +30,7 @@ namespace WLFSystem.Models
         public string? Tags { get; set;}
         public string? ItemDescription { get; set; }
         public string? WarehouseLocation { get; set; }
-        public string? ItemObject { get; set; }
+        public string? Comments { get; set; }
 
 
     }
