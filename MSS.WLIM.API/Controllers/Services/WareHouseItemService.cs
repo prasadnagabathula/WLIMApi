@@ -8,6 +8,7 @@ namespace WLFSystem.Controllers.Services
     {
         private readonly DataBaseContext _context;
 
+
         public WareHouseItemService(DataBaseContext context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
@@ -17,6 +18,7 @@ namespace WLFSystem.Controllers.Services
         {
             // Add the new item to the DbSet
             await _context.WarehouseItems.AddAsync(item);
+
 
             // Save changes to the database
             await _context.SaveChangesAsync();
@@ -33,6 +35,7 @@ namespace WLFSystem.Controllers.Services
         {
             throw new NotImplementedException();
         }
+
 
         public async Task<IEnumerable<WareHouseItem>> GetAll()
         {
@@ -59,6 +62,7 @@ namespace WLFSystem.Controllers.Services
             }
 
             return warehouseItemDto;
+
         }
 
         public Task<WareHouseItem> Update(WareHouseItem employee)
