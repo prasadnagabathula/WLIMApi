@@ -56,8 +56,10 @@ namespace WLFSystem.Controllers.Services
                     CreatedBy = d.CreatedBy,
                     CreatedDate = d.CreatedDate,
                     UpdatedBy = d.UpdatedBy,
+
                     UpdatedDate = d.UpdatedDate,
                     FilePath= d.FilePath
+
                 });
             }
 
