@@ -61,7 +61,7 @@ namespace WLFSystem.Controllers
                 {
                     Id = item.Id,
                     Category = item.Category == "null" || string.IsNullOrEmpty(item.Category) ? "Unknown" : item.Category,
-                    CreatedBy = "System",
+                    CreatedBy = "Prasad Nagabathula",
                     CreatedDate = DateTime.Now,
                     FilePath = item.Id + "_" + file.FileName,
                     WarehouseLocation = item.WarehouseLocation,
@@ -133,7 +133,7 @@ namespace WLFSystem.Controllers
 
             //Get list of uploaded items based on matched category from the database
 
-            var wareHouseItems = _context.WarehouseItems.Where(x => (x.Category != null && item.Category != null && x.Category.Contains(item.Category)) || (x.ItemDescription != null && item.ItemDescription != null && x.ItemDescription.Contains(item.ItemDescription)))?.ToList();
+            var wareHouseItems = _context.WarehouseItems.Where(x => (x.WarehouseLocation != null && x.WarehouseLocation == item.WarehouseLocation) && ((x.Category != null && item.Category != null && x.Category.Contains(item.Category)) || (x.ItemDescription != null && item.ItemDescription != null && x.ItemDescription.Contains(item.ItemDescription))))?.ToList();
             wareHouseItems ??= new List<WareHouseItem>();
             //if (item.Tags != null)
             //foreach (var tag in item.Tags)
